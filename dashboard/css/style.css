@@ -1,0 +1,35 @@
+/*Made By BioShot*/
+@font-face {
+  font-family: "sfpro";
+  src: url("/assets/fonts/SF-Pro-Rounded-Bold.otf");
+}
+.button-course{
+    display:block;
+    width: 150px;
+    height: 150px;
+    margin-left: 50%;
+}
+.button-course-center{
+    display:block;
+    width: 150px;
+    height: 150px;
+    margin-left: 50%;
+    margin-top: 350px;
+}
+#btn-export{
+    font-family: "sfpro";
+
+    color:black;
+    font-size: 1.6rem;
+    border-radius: 5px;
+}
+#btn-import{
+    font-family: "sfpro";
+
+    color:black;
+    font-size: 1.6rem;
+    border-radius: 5px;
+}
+body{
+    background-color: black;
+}

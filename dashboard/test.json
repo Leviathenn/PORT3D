@@ -1,0 +1,55 @@
+{
+    "$author":"bioshot",
+    "$object":{
+        "name":"New Cube",
+        "type":"Cube",
+        "source":"port3d.cube",
+        "size":[
+            1,
+            1,
+            1
+        ],
+        "camera":{
+            "source":"port3d.camera",
+            "position":"default",
+            "rotation":[
+                "port3d.movement.mouseY",
+                "port3d.movement.mouseX", 
+
+            ],
+            "conditionalRotation":[
+                "port3d.rotation.y",
+                "port3d.rotation.x",
+
+            ],
+            "modules":[
+                "bioshot.camera",
+                "port3d.props.camera"
+            ]
+            
+        }
+    },
+    "$editorData":{
+        "exportType":"json",
+        "$scurl":"dashboard",
+        "$parseImport":[
+            "$editorData",
+            "$object"
+
+        ],
+        "deprecated":[
+            "port3d.flat2D",
+            "bioshot.parse2D",
+            
+
+        ],
+        "modules":[
+            "bioshot.conditionalRotation",
+            "port3d.object"
+            
+        ]
+        
+        
+        
+    }
+}

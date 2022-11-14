@@ -1,0 +1,91 @@
+/*Made By BioShot!*/ 
+@font-face {
+  font-family: "sfpro";
+  src: url("/assets/fonts/SF-Pro-Rounded-Bold.otf");
+}
+
+.box {
+  font-family: "sfpro";
+  display: block;
+  background-color: hsl(300deg, 100%, 25%);
+  width: 390px;
+  height: 400px;
+  text-align: center;
+  margin-right: 50%;
+  margin-left: 45%;
+  margin-bottom: 50%;
+  margin-top: 10%;
+  box-shadow: 0 25px 25px hsl(300deg, 81%, 49%);
+  border-radius: 50px;
+  color: black;
+  transition: background-color 2s linear, box-shadow 2s linear, color 2s linear, border-radius 2s linear, transform 0.5s linear;
+}
+
+.box:hover {
+  transition: background-color 2s linear, box-shadow 2s linear, color 2s linear, border-radius 2s linear, transform 0.3s linear;
+  background-color: hsl(300deg, 81%, 49%);
+  color: white;
+  box-shadow: 0 25px 25px hsl(300deg, 100%, 25%);
+  border-radius: 20px;
+}
+
+
+
+.box:-webkit-full-screen {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.box:-ms-fullscreen {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.box:fullscreen {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.txt {
+  padding-bottom: 30%;
+  padding-top: 35%;
+}
+
+
+.signup {
+  font-family: "sfpro";
+  bottom: 0;
+  
+}
+.inputb{
+  border-radius: 10px;
+  background-color: white;
+  border-color: white;
+  color: black;
+  font-family: 'sfpro';
+  
+}
+.signupbtn{
+  border-radius: 10px;
+  width: 100px;
+  background-color: white;
+  border-color: white;
+  color: black;
+  font-family: 'sfpro';
+}
+.signupt2{
+  font-family: "sfpro";
+  padding-top: 30%;
+  border-radius: 10px;
+}
+.auth{
+    border-radius: 10px;
+    background-color: white;
+}
+
+body {
+  background-color: black;
+}/*# sourceMappingURL=style.css.map */
