@@ -14,14 +14,17 @@
             "position":"default",
             "rotation":[
                 "port3d.movement.mouseY",
-                "port3d.movement.mouseX", 
+                "port3d.movement.mouseX"
 
             ],
             "conditionalRotation":[
                 "port3d.rotation.y",
                 "port3d.rotation.x",
-
+                {
+                    "code":"1 == 2"
+                }
             ],
+
             "modules":[
                 "bioshot.camera",
                 "port3d.props.camera"
@@ -30,6 +33,7 @@
         }
     },
     "$editorData":{
+        "portName":"test",
         "exportType":"json",
         "$scurl":"dashboard",
         "$parseImport":[
@@ -39,13 +43,15 @@
         ],
         "deprecated":[
             "port3d.flat2D",
-            "bioshot.parse2D",
+            "bioshot.parse2D"
             
 
         ],
         "modules":[
             "bioshot.conditionalRotation",
-            "port3d.object"
+            "port3d.object",
+            "camera.modules"
+            
             
         ]
         
