@@ -2,34 +2,31 @@
 <html lang="en">
 
 <head>
-    <title>PORT3D</title>
+    <title>PORT3D | DASHBOARD</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-    <script src="js/main.js"></script>
     <link href="css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/modules/sweetalert2.all.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
+        integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous"></script>
+    <script src="js/modules/FileSaver.js"></script>
+    <script src="js/dashboard.js"></script>
 </head>
 
 <body>
-    <div class="box">
 
-        <h1 class="txt">PORT3D</h1>
-        <div class="signup">
-            <input type="text" class="inputb" id="username">
-            <br>
-            <input type="password" class="inputb" id="password">
-            <br>
-            <br>
-            <button class="signupbtn">Signup</button>
-        </div>
-        <div class="signupt2">
-            <h1>Are You Human?</h1>
-            <button class="auth">Sure Am!</button>
-        </div>
+    <div class="content">
+        <div class="options">
+            <button id="btn-import">import</button>
+            <button id="btn-export">export</button>
 
+        </div>
 
     </div>
 
+    <input type="file" id="importfile" accept=".json, .p3d" style="visibility:hidden;">
 
 </body>
 
