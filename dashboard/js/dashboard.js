@@ -1,6 +1,48 @@
-//Made By BioShot\
+//Made By BioShot\\
+var doc = document.documentElement;
 
-$(document).ready(function () {
+doc.setAttribute('data-useragent', navigator.userAgent);
+//Check the web perams
+var url = new URL(window.location.href);
+var action = url.searchParams.get("action");
+if(action == null){}else{
+    $.ajax({
+        type: "GET",
+        url: "actions/"+action+".action",
+        success: function (responce) {
+            console.log("action found.")
+            console.log("opening "+action+".");
+            var actions = document.createElement("script");
+            actions.src = responce;
+            document.head.appendChild(actions);
+        },
+        error: function(){
+            error("Action Not Found! ("+action+").");
+        }
+});
+}
+
+function error(errorMessage){
+    swal.fire({ 
+                icon:"error",
+                title:"Error!",
+                html:`${errorMessage} <style>.swal2-popup {
+  font-size: 1.2rem !important;
+  font-family: sfpro;
+}
+.swal2-title{
+    color: red;
+}
+.swal2-html-container{
+    color:gray;
+}</style>`,
+              
+                
+                background:"rgb(48, 48, 48)"
+    })
+}
+$(document).ready(async function () {
+
     $("#btn-import").click(function(){
         document.getElementById("importfile").click();
         $("#importfile").change(function (event){
@@ -8,12 +50,18 @@ $(document).ready(function () {
             
             const reader = new FileReader();
         
-    reader.addEventListener('load', function (event){
+        reader.addEventListener('load', function (event){
         const content = JSON.parse(event.target.result);
         const editorData = content.$editorData
         const object = content.$object
         const port3d = {}
         const bioshot = {}
+        const deprecated = editorData.deprecated;
+        var list = 0;
+        var last = 0;
+        
+        
+        bioshot.modules = editorData.modules;
         bioshot.conditionalRotation = {};
         bioshot.conditionalRotation.trigger = function(){
             if(object.camera.conditionalRotation[0]=="port3d.rotation.y"&&object.camera.conditionalRotation[1]=="port3d.rotation.x"){
@@ -26,6 +74,28 @@ $(document).ready(function () {
 				    render.render( scene, camera );`
             }
         }
+        Object.keys(deprecated).forEach(element => {
+            console.log(element)
+            if(deprecated[element] == bioshot[0]){
+                error(`deprecated module (${bioshot.modules}). `);
+                throw "error"
+            }else{
+                if(list == last){
+                    list+1;
+                    if(deprecated[element] == bioshot[0]){
+                        error(`deprecated module (${bioshot.modules}). `);
+                        throw "error"
+                    }
+                    
+                }else if(list == last-1){
+                    i+1;
+                    if(deprecated[element] == bioshot[0]){
+                       error(`deprecated module (${bioshot.modules}). `);
+                       throw "error"
+                    }
+                }
+            }
+        });
         if(object.name){
             
             const scene = new THREE.Scene();
@@ -74,9 +144,17 @@ $(document).ready(function () {
                             
                         })
                         
+                    }else{
+                        requestAnimationFrame( renderN );
+                    
+				    cube.rotation.x += 0.01;
+				    cube.rotation.y += 0.01;
+                    
+				    render.render( scene, camera );
+                   
                     }
                         
-                    }
+                }
                     renderN();
                     
                 }else{
@@ -88,10 +166,11 @@ $(document).ready(function () {
                     
 				    render.render( scene, camera );
                 }
+                animate();
                 
 			};
 
-			animate();
+			
             }
         }else{
             swal.fire({
