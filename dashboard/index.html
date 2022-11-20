@@ -2,26 +2,35 @@
 <html lang="en">
 
 <head>
-    <title>PORT3D | DASHBOARD</title>
+    <title>PORT3D</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="js/modules/sweetalert2.all.min.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="js/main.js"></script>
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="content">
-        <div class="options">
-            <button id="btn-import">import</button>
-            <button id="btn-export">export</button>
+    <div class="box">
 
+        <h1 class="txt">PORT3D</h1>
+        <div class="signup">
+            <input type="text" class="inputb" id="username">
+            <br>
+            <input type="password" class="inputb" id="password">
+            <br>
+            <br>
+            <button class="signupbtn">Signup</button>
         </div>
+        <div class="signupt2">
+            <h1>Are You Human?</h1>
+            <button class="auth">Sure Am!</button>
+        </div>
+
+
     </div>
-    <input type="file" id="importfile" accept=".json, .p3d" style="visibility:hidden;">
-    <h1 style="color: white;">Made For Jaxon By LeviA</h1>
+
+
 </body>
 
 </html>
