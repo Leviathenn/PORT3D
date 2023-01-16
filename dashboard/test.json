@@ -3,11 +3,11 @@
     "$object":{
         "name":"New Cube",
         "type":"Cube",
-        "source":"port3d.cube",
+        "source":"port3d.cube", 
         "size":[
-            1,
-            1,
-            1
+            2,
+            2,
+            2
         ],
         "camera":{
             "source":"port3d.camera",
@@ -21,7 +21,7 @@
                 "port3d.rotation.y",
                 "port3d.rotation.x",
                 {
-                    "code":"1 == 2"
+                    "code":"e.pageX > 30 && e.pageY < 50"
                 }
             ],
 
@@ -42,10 +42,10 @@
 
         ],
         "deprecated":[
+            "bioshot.conditionalRotation",
             "port3d.flat2D",
             "bioshot.parse2D"
             
-
         ],
         "modules":[
             "bioshot.conditionalRotation",

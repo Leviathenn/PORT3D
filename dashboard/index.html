@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/style.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="js/modules/sweetalert2.all.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
         integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY=" crossorigin="anonymous"></script>
+
     <script src="js/modules/FileSaver.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="js/modules/jszip.min.js"></script>
+    <script src="js/dashboard.js" type="module"></script>
 </head>
 
 <body>
@@ -25,6 +26,7 @@
         </div>
 
     </div>
+
 
     <input type="file" id="importfile" accept=".json, .p3d" style="visibility:hidden;">
 

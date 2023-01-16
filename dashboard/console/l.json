@@ -1,0 +1,6 @@
+{
+  "type": "json",
+  "size": [1, 1, 1],
+  "object": [],
+  "cameraRotation": ["port3d.movement.mouseY", "port3d.movement.mouseX"]
+}

@@ -1,7 +1,7 @@
 /*Made By BioShot!*/
 @font-face {
   font-family: "sfpro";
-  src: url("https://bioshot.github.io/PORT3D/assets/fonts/SF-Pro-Rounded-Bold.otf");
+  src: url("/assets/fonts/SF-Pro-Rounded-Bold.otf");
 }
 .box {
   font-family: "sfpro";

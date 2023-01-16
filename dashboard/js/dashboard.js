@@ -1,6 +1,8 @@
-//Made By BioShot\\
+//Made By BioShot Aaka Levi-A\\
+import * as THREE from './modules/three.js';
+import { OrbitControls } from './modules/OrbitControls.js'
+import { GLTFLoader } from './modules/GLTFLoader.js';
 var doc = document.documentElement;
-
 doc.setAttribute('data-useragent', navigator.userAgent);
 //Check the web perams
 var url = new URL(window.location.href);
@@ -47,10 +49,80 @@ $(document).ready(async function () {
         document.getElementById("importfile").click();
         $("#importfile").change(function (event){
             const files = event.target.files;
-            
+            const file =  event.target.result;
             const reader = new FileReader();
         
         reader.addEventListener('load', function (event){
+        const fsty = document.getElementById('importfile').files[0].name
+        if(fsty.lastIndexOf(".p3d") != -1){
+           function onWindowResize() {
+ 
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+ 
+  renderer.setSize( window.innerWidth, window.innerHeight );
+ 
+}
+ 
+ 
+window.addEventListener('resize', onWindowResize);
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize( window.innerWidth, window.innerHeight );
+document.body.appendChild( renderer.domElement );
+renderer.outputEncoding = THREE.sRGBEncoding;
+
+const dirLight = new THREE.DirectionalLight( 0xffffff, 0.8 );
+dirLight.position.set( - 3, 10, - 10 );
+scene.add( dirLight );
+
+            const render = new THREE.WebGLRenderer();
+            const zip = new JSZip();
+zip.loadAsync(event.target.result)
+  .then(() => {
+    return zip.file("object.glb").async("blob");
+  })
+  .then((fileData) => {
+    var loader = new GLTFLoader();
+      const url = window.URL.createObjectURL(new Blob([fileData]));
+    // load the GLB file
+    loader.load(url, function (gltf) {
+        var model = gltf.scene;
+       // model.scale.set(1,1,1)
+       
+        scene.add( model);
+
+const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x444444, 0.4 );
+hemiLight.position.set( 0, 20, 0 );
+scene.add( hemiLight );
+camera.position.y = 1;
+  camera.position.z = 3;
+ 
+                       var controls = new OrbitControls(camera, renderer.domElement);
+ 
+                         controls.target.set(4.5, 0, 4.5);
+                        
+                         controls.enableDamping = true;
+                         // add the model to your scene
+          function animate() {
+				    
+              
+               
+
+                         
+
+                    requestAnimationFrame( animate );
+				    renderer.render( scene, camera );
+                }
+                animate();
+       
+    });
+    
+  });
+ 
+        }else{
         const content = JSON.parse(event.target.result);
         const editorData = content.$editorData
         const object = content.$object
@@ -145,13 +217,17 @@ $(document).ready(async function () {
                         })
                         
                     }else{
-                        requestAnimationFrame( renderN );
-                    
-				    cube.rotation.x += 0.01;
-				    cube.rotation.y += 0.01;
-                    
-				    render.render( scene, camera );
-                   
+                        
+                   $(document).mousedown(function () {
+                          $(document).mousemove(function (e) {
+                            
+                                console.log(e.pageX, e.pageY)       
+                                cube.rotation.y = e.pageX / 100;
+                                cube.rotation.x = e.pageY / 100;
+                            
+                        });
+                    });
+                    render.render( scene, camera );
                     }
                         
                 }
@@ -181,6 +257,7 @@ $(document).ready(async function () {
   font-family: sfpro;
 }
 .swal2-title{
+
     color: red;
 }
 .swal2-html-container{
@@ -191,6 +268,7 @@ $(document).ready(async function () {
                 background:"rgb(48, 48, 48)"
             })
         }
+    }
     })
            reader.readAsBinaryString(files[0])
 
@@ -218,7 +296,8 @@ $(document).ready(async function () {
                 
                 background:"rgb(48, 48, 48)"
             })
-            
+        
+               
         }
     })
 });

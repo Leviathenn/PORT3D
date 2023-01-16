@@ -1,0 +1,10 @@
+{
+  "$author": "bioshot",
+  "$p3d": {
+    "$glb": {
+      "fname": "object.glb"
+    },
+    "rotation": ["port3d.movement.mouseY", "port3d.movement.mouseX"],
+    "$message": { "title": "", "text": "" }
+  }
+}
